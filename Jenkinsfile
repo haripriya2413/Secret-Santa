@@ -14,7 +14,7 @@ pipeline {
         
         stage("Git Checkout"){
             steps{
-                git branch: 'master', changelog: false, poll: false, url: 'https://github.com/priya241302/Secreat-Santa.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/haripriya2413/Secret-Santa.git'
         }
         }
         stage("Compile"){
@@ -37,9 +37,9 @@ pipeline {
          stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Secreat-Santa \
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Secret-Santa \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Secreat-Santa '''
+                    -Dsonar.projectKey=Secret-Santa '''
     
                 }
             }
@@ -82,14 +82,14 @@ pipeline {
        }
         stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Secreat-Santa"
-            GIT_USER_NAME = "priya241302"
+            GIT_REPO_NAME = "Secret-Santa"
+            GIT_USER_NAME = "haripriya2413"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "haripriyapogu@gmail.com"
-                    git config user.name "priya241302"
+                    git config user.email "haripriyagh@gmail.com"
+                    git config user.name "haripriya2413"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" manifests/deploymentservice.yml
                     git add manifests/deploymentservice.yml
