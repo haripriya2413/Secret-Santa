@@ -104,12 +104,7 @@ pipeline {
 
     
         
-        stage("Deploy To Kuberates Cluster"){
-        steps {
-        sh "kubectl apply -f manifests/deploymentservice.yml"
-     }
-    }
-
+     
         
        
     }
