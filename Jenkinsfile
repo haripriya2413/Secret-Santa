@@ -108,8 +108,6 @@ pipeline {
         sh "kubectl apply -f manifests/deploymentservice.yml"
      }
     }
-
-     
         
        
     }
