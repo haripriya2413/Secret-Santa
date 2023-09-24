@@ -44,8 +44,6 @@ pipeline {
                 }
             }
         }
-         
-        
         stage("OWASP Dependency Check"){
             steps{
                 dependencyCheck additionalArguments: '--scan ./ ' , odcInstallation: 'DP'
