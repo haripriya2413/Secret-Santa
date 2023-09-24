@@ -2,5 +2,5 @@ projectKey=Secret-Santa
 serverUrl=http://18.204.7.82:9000
 serverVersion=9.9.2.77730
 dashboardUrl=http://18.204.7.82:9000/dashboard?id=Secret-Santa
-ceTaskId=AYrGYC1ijdJim-FyKSJn
-ceTaskUrl=http://18.204.7.82:9000/api/ce/task?id=AYrGYC1ijdJim-FyKSJn
+ceTaskId=AYrGaz1QjdJim-FyKSJo
+ceTaskUrl=http://18.204.7.82:9000/api/ce/task?id=AYrGaz1QjdJim-FyKSJo
