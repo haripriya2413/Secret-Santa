@@ -44,6 +44,13 @@ pipeline {
                 }
             }
         }
+
+        stage("Build"){
+            steps{
+                sh " mvn clean install"
+            }
+        }  
+        
         stage("OWASP Dependency Check"){
             steps{
                 dependencyCheck additionalArguments: '--scan ./ ' , odcInstallation: 'DP'
@@ -52,25 +59,16 @@ pipeline {
         }
         
       
-        stage("Build"){
-            steps{
-                sh " mvn clean install"
-            }
-        }  
         
-        stage("Docker Build"){
-        steps{
-            sh "docker build -t secreatsanta ."
-        }
-        }
-
+        
+       
           
          
-       stage("Docker Push"){
+       stage("Docker  Build & Push"){
             steps{
                script{
                      withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker') {
-                      
+                        sh "docker build -t secreatsanta ."
                         sh "docker tag secreatsanta priya247/secreatsanta:${env.BUILD_NUMBER} "
                         sh "docker push priya247/secreatsanta:${env.BUILD_NUMBER} "
                     
