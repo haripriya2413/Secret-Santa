@@ -68,9 +68,9 @@ pipeline {
             steps{
                script{
                      withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker') {
-                        sh "docker build -t secreatsanta ."
-                        sh "docker tag secreatsanta priya247/secreatsanta:${env.BUILD_NUMBER} "
-                        sh "docker push priya247/secreatsanta:${env.BUILD_NUMBER} "
+                        sh "docker build -t secreatsant ."
+                        sh "docker tag secreatsanta priya247/secreatsant:${env.BUILD_NUMBER} "
+                        sh "docker push priya247/secreatsant:${env.BUILD_NUMBER} "
                     
                     }
                 }
