@@ -62,7 +62,7 @@ echo "Step 8: Disable Swap"
 swapoff -a
 
 Step 9: Export the environment variable:
-export KUBE_VERSION=1.23.0
+export KUBE_VERSION=1.28.2
 
 echo "Step 10: Install Kubernetes:"
 apt-get update -y
